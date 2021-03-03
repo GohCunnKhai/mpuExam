@@ -25,10 +25,10 @@
   firebase.analytics();
   
   function writeDate() {
-    firebase.database().ref("user").set((
+    firebase.database().ref("user").set({
       name: document.getElementById("namefield").value,
       age: document.getElementById("agefield").value
-    ));
+    });
   }
 </script>
   
