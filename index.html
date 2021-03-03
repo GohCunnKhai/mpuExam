@@ -3,6 +3,8 @@
 <body>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -24,8 +26,8 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   
-  function writeDate() {
-    firebase.database().ref("user").set({
+  function writeDate(){
+    firebase.database().ref("User").set({
       name: document.getElementById("namefield").value,
       age: document.getElementById("agefield").value
     });
@@ -35,6 +37,6 @@
   <h1>User Database</h1>
   <input type ="text" placeholder ="name" id="namefield">
   <input type = "text" placeholder ="age" id ="agefield">
-  <Button onclick="writeDate()">Submit</button>
+  <button onclick="writeDate()">Submit</button>
 </body>
 </html>
