@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html>
 <body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
-<h2>Text input fields</h2>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
 
-<form>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe">
-</form>
-
-<p>Note that the form itself is not visible.</p>
-
-<p>Also note that the default width of text input fields is 20 characters.</p>
-
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCiN08LswZqkFRzK0qaZxSRDsd6_Hdc1PU",
+    authDomain: "mpuexam.firebaseapp.com",
+    projectId: "mpuexam",
+    storageBucket: "mpuexam.appspot.com",
+    messagingSenderId: "248376470350",
+    appId: "1:248376470350:web:a7b5589f1a40d5ed7bcc1f",
+    measurementId: "G-NSXBBMYLDZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  
+  function writeDate() {
+    firebase.database().ref("user").set((
+      name: document.getElementById("nameField").value,
+      age: document.getElementById("ageField").value
+    ));
+  }
+</script>
+  
+  <h1>User Database</h1>
+  <input type ="text" placeholder ="name" id="namefield">
+  <input type = "text" placeholder ="age" id ="agefield">
+  <Button onclick="writeDate()">Submit</button>
 </body>
 </html>
